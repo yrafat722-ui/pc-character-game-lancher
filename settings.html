@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>الإعدادات | PC Character Games</title>
+    <meta name="description" content="خصص تجربة PC Character Games حسب تفضيلاتك.">
+    <link rel="icon" href="image/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+    <a class="brand" href="index.html">
+        <span class="brand-icon">🎮</span>
+        <span><b>PC CHARACTER <em>GAMES</em></b><small>PLAY · DOWNLOAD · EXPLORE</small></span>
+    </a>
+    <nav class="topnav">
+        <a href="index.html">الرئيسية ⌂</a>
+        <a href="index.html#games">الألعاب 🎮</a>
+        <a href="index.html#news">أحدث الإضافات ▤</a>
+        <a class="active" href="settings.html">الإعدادات ⚙</a>
+    </nav>
+    <div class="actions">
+        <button class="chip" id="langBtn">🌐 العربية</button>
+        <button class="chip" id="themeBtn">☀️ ☾</button>
+    </div>
+</header>
+
+<main class="settings-page">
+    <section class="settings-hero">
+        <h1>⚙️ إعدادات الموقع والتطبيق</h1>
+        <p>خصص مظهر PC Character Games وتابع التحديثات الخاصة باللانشر من مكان واحد.</p>
+    </section>
+
+    <div class="settings-grid">
+        <section class="setting-card">
+            <h2>🔄 التحديثات والنظام</h2>
+            <p>التحقق من وجود إصدارات جديدة على مستودع GitHub.</p>
+            <div class="setting-row">
+                <div><strong>إصدار اللانشر الحالي</strong><small id="currentVersionText">جاري التحميل...</small></div>
+                <button id="checkUpdateBtn" class="chip" style="background:#183a75; border-color:#2e5da8;">التحقق من التحديثات</button>
+            </div>
+            <div class="setting-row" style="display:block; text-align:center;">
+                <p id="updateStatusMsg" style="color:#6ee7ff; font-size:13px; margin:5px 0 0;">اضغط على زر التحقق لمعرفة ما إذا كان هناك إصدار جديد.</p>
+            </div>
+        </section>
+
+        <section class="setting-card">
+            <h2>🎨 المظهر واللغة</h2>
+            <p>اختَر الواجهة التي تناسبك.</p>
+            <div class="setting-row">
+                <div><strong>الثيم</strong><small>فاتح أو داكن</small></div>
+                <select id="themeSelect"><option value="dark">داكن</option><option value="light">فاتح</option></select>
+            </div>
+            <div class="setting-row">
+                <div><strong>لغة الموقع</strong><small>العربية أو الإنجليزية</small></div>
+                <select id="langSelect"><option value="ar">العربية</option><option value="en">English</option></select>
+            </div>
+        </section>
+
+        <section class="setting-card">
+            <h2>✨ التأثيرات والتفاعل</h2>
+            <p>تحكم بحركة البطاقات والمؤثرات عند المرور عليها.</p>
+            <div class="setting-row">
+                <div><strong>تأثير التركيز على البطاقات</strong><small>رفع البطاقة وإبراز إطارها عند المرور</small></div>
+                <label class="switch"><input type="checkbox" id="hoverToggle" checked><span></span></label>
+            </div>
+            <div class="setting-row">
+                <div><strong>الحركات والانتقالات</strong><small>تعطيل الحركة لتجربة أكثر هدوءاً</small></div>
+                <label class="switch"><input type="checkbox" id="motionToggle" checked><span></span></label>
+            </div>
+        </section>
+
+        <section class="setting-card">
+            <h2>🧩 عرض المحتوى</h2>
+            <p>اختر طريقة التفاعل مع بطاقات الألعاب.</p>
+            <div class="setting-row">
+                <div><strong>إظهار جميع بطاقات الألعاب</strong><small>إعادة عرض البطاقات بعد استخدام التصنيفات</small></div>
+                <button id="showAllBtn" class="chip">إظهار الكل</button>
+            </div>
+            <div class="setting-row">
+                <div><strong>إعادة ضبط التفضيلات</strong><small>الرجوع إلى الثيم الداكن والعربية والتأثيرات</small></div>
+                <button id="resetBtn" class="chip">إعادة ضبط</button>
+            </div>
+        </section>
+
+        <section class="setting-card">
+            <h2>💾 حفظ الإعدادات</h2>
+            <p>تُحفظ الخيارات تلقائياً على جهازك ولا تحتاج إلى حساب.</p>
+            <div class="settings-actions">
+                <a href="index.html">العودة للرئيسية ←</a>
+                <span class="save-note" id="saveStatus" aria-live="polite">إعداداتك الحالية محفوظة تلقائياً.</span>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer" style="margin-bottom:24px">
+        <a class="brand mini" href="index.html">
+            <span class="brand-icon">🎮</span>
+            <span><b>PC CHARACTER <em>GAMES</em></b><small>© 2026 All rights reserved.</small></span>
+        </a>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="index.html#games">الألعاب</a>
+            <a href="index.html#news">أحدث الإضافات</a>
+        </nav>
+    </footer>
+</main>
+
+<!-- نافذة التحديث المنبثقة -->
+<div id="updateModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(2,8,23,0.85); backdrop-filter:blur(8px); align-items:center; justify-content:center;">
+  <div style="background:#061126; border:1px solid #284b8b; border-radius:16px; padding:28px; width:90%; max-width:440px; text-align:center; box-shadow:0 0 30px #416dff40;">
+    <div style="font-size:45px; margin-bottom:10px;">🚀</div>
+    <h2 style="margin:0 0 10px; color:#fff; font-size:22px;">تحديث جديد متاح!</h2>
+    <p id="updateText" style="color:#a8c5eb; font-size:14px; line-height:1.6; margin-bottom:20px;">يتوفر إصدار جديد من اللانشر.</p>
+    <div id="progressContainer" style="display:none; margin-bottom:20px;">
+      <div style="background:#0b1e3f; border-radius:10px; height:12px; overflow:hidden; border:1px solid #1a3d7a;">
+        <div id="progressBar" style="width:0%; height:100%; background:linear-gradient(90deg,#9b22ff,#168dff); transition:width 0.3s;"></div>
+      </div>
+      <span id="progressText" style="font-size:12px; color:#6ee7ff; display:block; margin-top:8px;">جاري التحميل: 0%</span>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <button id="updateActionBtn" style="background:linear-gradient(105deg,#9b22ff,#4e42ff 62%,#168dff); border:0; color:#fff; padding:12px; border-radius:11px; font-weight:bold; font-size:14px; cursor:pointer; flex:1;">تحديث الآن</button>
+      <button id="laterBtn" style="background:#101c3c; border:1px solid #284b8b; color:#fff; padding:12px; border-radius:11px; font-weight:bold; font-size:14px; cursor:pointer;">لاحقاً</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const body = document.body;
+const root = document.documentElement;
+
+function theme(v) {
+    localStorage.setItem('pcg-theme', v);
+    body.classList.toggle('light', v === 'light');
+    if ($('themeSelect'))$('themeSelect').value = v;
+    if ($('themeBtn'))$('themeBtn').textContent = v === 'light' ? '☀️ الوضع الفاتح' : '☀️ ☾';
+    status();
+}
+
+function lang(v) {
+    localStorage.setItem('pcg-lang', v);
+    root.lang = v;
+    root.dir = v === 'ar' ? 'rtl' : 'ltr';
+    if ($('langSelect'))$('langSelect').value = v;
+    if ($('langBtn'))$('langBtn').textContent = v === 'ar' ? '🌐 العربية' : '🌐 English';
+    status();
+}
+
+function setPref(key, v, cls) {
+    localStorage.setItem(key, v ? 'on' : 'off');
+    body.classList.toggle(cls, !v);
+    status();
+}
+
+function status() {
+    if ($('saveStatus'))$('saveStatus').textContent = '✓ تم حفظ التفضيلات تلقائياً';
+}
+
+// تهيئة التفضيلات بأمان
+try {
+    const t = localStorage.getItem('pcg-theme') || 'dark';
+    const l = localStorage.getItem('pcg-lang') || 'ar';
+    const h = localStorage.getItem('pcg-hover') !== 'off';
+    const m = localStorage.getItem('pcg-motion') !== 'off';
+    
+    theme(t);
+    lang(l);
+    if ($('hoverToggle'))$('hoverToggle').checked = h;
+    if ($('motionToggle'))$('motionToggle').checked = m;
+    body.classList.toggle('no-card-hover', !h);
+    body.classList.toggle('reduce-motion', !m);
+} catch(e) {
+    console.error(e);
+}
+
+// ربط الأحداث
+if ($('themeSelect'))$('themeSelect').addEventListener('change', e => theme(e.target.value));
+if ($('langSelect'))$('langSelect').addEventListener('change', e => lang(e.target.value));
+if ($('themeBtn'))$('themeBtn').addEventListener('click', () => theme((localStorage.getItem('pcg-theme') || 'dark') === 'dark' ? 'light' : 'dark'));
+if ($('langBtn'))$('langBtn').addEventListener('click', () => lang((localStorage.getItem('pcg-lang') || 'ar') === 'ar' ? 'en' : 'ar'));
+if ($('hoverToggle'))$('hoverToggle').addEventListener('change', e => setPref('pcg-hover', e.target.checked, 'no-card-hover'));
+if ($('motionToggle'))$('motionToggle').addEventListener('change', e => setPref('pcg-motion', e.target.checked, 'reduce-motion'));
+if ($('showAllBtn'))$('showAllBtn').addEventListener('click', () => { localStorage.setItem('pcg-show-all', 'on'); if($('saveStatus'))$('saveStatus').textContent = 'يمكنك مشاهدة كل الألعاب عند العودة إلى الصفحة الرئيسية.'; });
+if ($('resetBtn'))$('resetBtn').addEventListener('click', () => { theme('dark'); lang('ar'); if($('hoverToggle'))$('hoverToggle').checked = true; if($('motionToggle'))$('motionToggle').checked = true; setPref('pcg-hover', true, 'no-card-hover'); setPref('pcg-motion', true, 'reduce-motion'); localStorage.removeItem('pcg-show-all'); });
+
+// التعامل مع التحديثات بأمان تام داخل الإعدادات
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.pcgUpdater) {
+        if (typeof window.pcgUpdater.getVersion === 'function') {
+            window.pcgUpdater.getVersion().then((ver) => {
+                if ($('currentVersionText')) {$('currentVersionText').textContent = `الإصدار الحالي: v${ver}`;
+                }
+            }).catch(() => {});
+        }
+
+        const modal = $('updateModal');
+        const updateText = $('updateText');
+        const actionBtn = $('updateActionBtn');
+        const laterBtn = $('laterBtn');
+        const progressContainer = $('progressContainer');
+        const progressBar = $('progressBar');
+        const progressText = $('progressText');
+        const statusMsg = $('updateStatusMsg');
+        const checkBtn = $('checkUpdateBtn');
+
+        if (checkBtn) {
+            checkBtn.addEventListener('click', async () => {
+                if (statusMsg) statusMsg.textContent = 'جاري الاتصال بـ GitHub والبحث عن تحديثات...';
+                checkBtn.disabled = true;
+                try {
+                    const result = await window.pcgUpdater.checkForUpdatesManual();
+                    if (result && result.hasUpdate) {
+                        if (statusMsg) statusMsg.textContent = `يتوفر إصدار جديد: v${result.version}`;
+                        if (updateText) updateText.textContent = `يتوفر الإصدار (v${result.version}) على GitHub. هل تريد التحديث الآن؟`;
+                        if (modal) modal.style.display = 'flex';
+                    } else {
+                        if (statusMsg) statusMsg.textContent = 'أنت تستخدم أحدث إصدار بالفعل! لا توجد تحديثات جديدة.';
+                    }
+                } catch (err) {
+                    if (statusMsg) statusMsg.textContent = 'فشل التحقق من التحديثات. تأكد من اتصالك بالإنترنت.';
+                } finally {
+                    checkBtn.disabled = false;
+                }
+            });
+        }
+
+        window.pcgUpdater.onUpdateAvailable((newVersion) => {
+            if (statusMsg) statusMsg.textContent = `يتوفر تحديث جديد: v${newVersion}`;
+            if (updateText) updateText.textContent = `يتوفر إصدار جديد (${newVersion}) على مستودع جيت هاب.`;
+            if (modal) modal.style.display = 'flex';
+        });
+
+        if (actionBtn) {
+            actionBtn.addEventListener('click', () => {
+                if (actionBtn.dataset.state === 'ready') {
+                    window.pcgUpdater.quitAndInstall();
+                } else {
+                    actionBtn.style.display = 'none';
+                    if (laterBtn) laterBtn.style.display = 'none';
+                    if (progressContainer) progressContainer.style.display = 'block';
+                    window.pcgUpdater.startDownload();
+                }
+            });
+        }
+
+        if (laterBtn) {
+            laterBtn.addEventListener('click', () => {
+                if (modal) modal.style.display = 'none';
+            });
+        }
+
+        window.pcgUpdater.onUpdateProgress((percent) => {
+            if (progressBar) progressBar.style.width = percent + '%';
+            if (progressText) progressText.textContent = `جاري التحميل: ${percent}%`;
+        });
+
+        window.pcgUpdater.onUpdateDownloaded(() => {
+            if (progressContainer) progressContainer.style.display = 'none';
+            if (updateText) updateText.textContent = 'تم تحميل التحديث بنجاح! اضغط لإعادة التشغيل والتثبيت.';
+            if (actionBtn) {
+                actionBtn.textContent = 'إعادة التشغيل والتثبيت الآن';
+                actionBtn.dataset.state = 'ready';
+                actionBtn.style.display = 'block';
+            }
+            if (laterBtn) laterBtn.style.display = 'inline-block';
+        });
+    }
+});
+</script>
+</body>
+</html>

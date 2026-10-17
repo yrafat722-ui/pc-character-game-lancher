@@ -1,0 +1,34 @@
+{
+  "name": "pc-character-game-lancher",
+  "version": "1.0.0",
+  "description": "PC Character Games Desktop Launcher",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.pccharacter.games",
+    "productName": "PC Character Games",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "yrafat722-ui",
+      "repo": "pc-character-game-lancher"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0"
+  }
+}
