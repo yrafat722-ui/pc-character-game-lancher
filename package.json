@@ -1,11 +1,11 @@
 {
   "name": "pc-character-game-lancher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PC Character Games Desktop Launcher",
   "main": "main.cjs",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder --win"
   },
   "build": {
     "appId": "com.pccharacter.games",
@@ -14,9 +14,12 @@
       "output": "dist"
     },
     "win": {
-      "target": [
-        "nsis"
-      ]
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
     },
     "publish": {
       "provider": "github",
